@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import WelcomeBanner from "./_components/Welcome/WelcomeBanner";
+import AITools from "./_components/Tools/AITools";
 
 function Dashboard() {
-    return (
-        <div>Dashboard</div>
-    )
+  return (
+    <div>
+      <WelcomeBanner />
+      <AITools/>
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;
