@@ -7,7 +7,7 @@ const aiToolsList = [
     desc: "Converse com AI Agente",
     icon: "/chatbot.png",
     button: "Vamos conversar",
-    path: "/ai-chat",
+    path: "/ai-tools/ai-chat",
   },
   {
     name: "Verificador de currículos com IA",

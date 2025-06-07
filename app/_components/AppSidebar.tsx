@@ -17,28 +17,28 @@ import { usePathname } from 'next/navigation'
 
 const items = [
     {
-        title: "Home",
-        url: "#",
+        title: "Workspace",
+        url: "/workspace",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
+        title: "AI Tools",
+        url: "/aitools",
         icon: Inbox,
     },
     {
-        title: "Calendar",
-        url: "#",
+        title: "My History",
+        url: "/history",
         icon: Calendar,
     },
     {
-        title: "Search",
-        url: "#",
+        title: "Billing",
+        url: "/billing",
         icon: Search,
     },
     {
-        title: "Settings",
-        url: "#",
+        title: "Profile",
+        url: "/profile",
         icon: Settings,
     },
 ]
