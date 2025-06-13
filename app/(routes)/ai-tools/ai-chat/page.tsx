@@ -4,9 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
 import EmptyState from "./_components/Empty/EmptyState";
+import axios from "axios";
 
 function AIChat() {
-  const [useInput, setUserInput] = useState<string>();
+  const [userInput, setUserInput] = useState<string>();
+  const [loading, setLoading] = useState(false);
+
+  const onSend = async () => {
+    setLoading(true);
+    const result = await axios.post("/api/ai-coach-chat-agent", {
+      userInput: userInput,
+    });
+    setLoading(false);
+  };
 
   return (
     <div className="px-10 md:px-24 lg:px-36 xl:px-48">
@@ -29,10 +39,10 @@ function AIChat() {
         <div className="flex justify-between items-center gap-6">
           <Input
             placeholder="Type here"
-            value={useInput}
+            value={userInput}
             onChange={(event) => setUserInput(event.target.value)}
           />
-          <Button>
+          <Button onClick={onSend} disabled={loading}>
             <Send />
           </Button>
         </div>
