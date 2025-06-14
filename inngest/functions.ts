@@ -12,10 +12,8 @@ export const helloWorld = inngest.createFunction(
 
 export const AiCoachChatAgent = createAgent({
   name: "AiCoachChatAgent ",
-  description:
-    "Um agente de IA que responde a perguntas relacionadas à carreira",
-  system:
-    "Você é um agente de bate-papo profissional e prestativo do Ai Career Coach",
+  description:"Um agente de IA que responde a perguntas relacionadas à carreira",
+  system:"Você é um agente de bate-papo profissional e prestativo do Ai Career Coach",
   model: gemini({
     model: "gemini-2.0-flash",
     apiKey: process.env.GEMINI_API_Key,
