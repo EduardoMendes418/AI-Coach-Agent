@@ -12,9 +12,10 @@ function AIChat() {
 
   const onSend = async () => {
     setLoading(true);
-    const result = await axios.post("/api/ai-coach-chat-agent", {
+    const result = await axios.post('/api/ai-coach-chat-agent', {
       userInput: userInput,
     });
+    console.log(result.data);
     setLoading(false);
   };
 

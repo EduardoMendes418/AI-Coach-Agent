@@ -1,5 +1,5 @@
 import { inngest } from "./client";
-import { createAgent, openai } from "@inngest/agent-kit";
+import { createAgent, gemini, openai } from "@inngest/agent-kit";
 
 export const helloWorld = inngest.createFunction(
   { id: "hello-world" },
@@ -12,11 +12,9 @@ export const helloWorld = inngest.createFunction(
 
 export const AiCoachChatAgent = createAgent({
   name: "AiCoachChatAgent ",
-  description:
-    "Um agente de IA que responde a perguntas relacionadas à carreira",
-  system:
-    "Você é um agente de bate-papo profissional e prestativo do Ai Career Coach",
-  model: openai({
+  description:"Um agente de IA que responde a perguntas relacionadas à carreira",
+  system:"Você é um agente de bate-papo profissional e prestativo do Ai Career Coach",
+  model: gemini({
     model: "gemini-2.0-flash",
     apiKey: process.env.GEMINI_API_Key,
   }),
