@@ -6,18 +6,37 @@ import { Send } from "lucide-react";
 import EmptyState from "./_components/Empty/EmptyState";
 import axios from "axios";
 
+type messages = {
+  content: string;
+  role: string;
+  type: string;
+};
+
 function AIChat() {
-  const [userInput, setUserInput] = useState<string>();
+  const [userInput, setUserInput] = useState<string>("");
   const [loading, setLoading] = useState(false);
+  const [messageList, setMessageList] = useState<messages[]>([]);
 
   const onSend = async () => {
     setLoading(true);
-    const result = await axios.post('/api/ai-coach-agent', {
+    setMessageList((prev) => [
+      ...prev,
+      {
+        content: userInput,
+        role: "user",
+        type: "text",
+      },
+    ]);
+    const result = await axios.post("/api/ai-coach-agent", {
       userInput: userInput,
     });
     console.log(result.data);
+    setMessageList((prev) => [...prev, result.data]);
     setLoading(false);
   };
+
+  console.log(messageList);
+
 
   return (
     <div className="px-10 md:px-24 lg:px-36 xl:px-48">
